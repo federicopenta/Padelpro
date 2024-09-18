@@ -1,0 +1,145 @@
+body {
+    font-family: 'Arial', sans-serif; /* Imposta il font della pagina */
+    margin: 0; /* Rimuove i margini di default */
+    background-color: #003366; /* Sfondo blu scuro, simile a uno campo di padel */
+    color: black; /* Colore del testo per leggibilità */
+}
+
+.container {
+    max-width: 800px; /* Imposta la larghezza massima del contenitore */
+    margin: auto; /* Centra il contenitore */
+    padding: 20px; /* Spaziatura interna del contenitore */
+    background-color: white; /* Sfondo bianco per il contenitore */
+    border-radius: 8px; /* Angoli arrotondati */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombra per un leggero effetto di profondità */
+}
+
+h1, h2 {
+    color: #003366; /* Blu scuro per i titoli */
+}
+
+label {
+    display: inline-block; /* Mostra le etichette come elementi in linea */
+    width: 100px; /* Larghezza fissa per le etichette */
+    color: #003366; /* Colore blu scuro per le etichette */
+}
+
+input {
+    margin-bottom: 10px; /* Margine inferiore per separare gli input */
+    border: 1px solid #ddd; /* Bordo grigio chiaro per gli input */
+    border-radius: 4px; /* Angoli arrotondati per gli input */
+    padding: 10px; /* Spaziatura interna per gli input */
+    width: calc(100% - 20px); /* Larghezza dell'input con margini interni */
+}
+
+button {
+    padding: 10px 15px; /* Spaziatura interna dei pulsanti */
+    margin: 5px; /* Margine per separare i pulsanti */
+    cursor: pointer; /* Cambia il cursore a mano */
+    border: none; /* Rimuove il bordo di default */
+    border-radius: 5px; /* Angoli arrotondati per i pulsanti */
+    transition: background-color 0.2s; /* Transizione liscia per il cambiamento del colore di sfondo */
+    background-color: #030bfc; /* Colore di sfondo blu per il pulsante */
+    color: white; /* Colore del testo per i pulsanti */
+}
+
+/* Stile per il pulsante Gestisci Prenotazioni */
+button.manage-bookings-button {
+    background-color: #007bff; /* Blu chiaro per questo pulsante specifico */
+    color: white; /* Testo bianco per la leggibilità */
+}
+
+button.manage-bookings-button:hover {
+    background-color: #0056b3; /* Blu scuro al passaggio del mouse */
+}
+
+/* Stili per altri pulsanti */
+button.field-button {
+    background-color: #0066cc; /* Blu per i pulsanti dei campi */
+}
+
+button.field-button:hover:not(.disabled) {
+    background-color: #005bb5; /* Blu più scuro al passaggio del mouse quando abilitato */
+}
+
+button.field-button.disabled {
+    background-color: #ccc; /* Grigio per i pulsanti non selezionabili */
+    color: #777; /* Testo grigio scuro */
+    cursor: not-allowed; /* Cambia il cursore per indicare che non è cliccabile */
+}
+
+/* Pulsanti di conferma nel popup */
+button.confirm {
+    background-color: #5cb85c; /* Verde per il pulsante di conferma */
+}
+
+button.confirm:hover {
+    background-color: #4cae4c; /* Verde più scuro al passaggio del mouse */
+}
+
+/* Pulsanti di annullamento nel popup */
+button.cancel {
+    background-color: #e74c3c; /* Rosso per il pulsante di annullamento */
+}
+
+button.cancel:hover {
+    background-color: #c0392b; /* Rosso più scuro al passaggio del mouse */
+}
+
+/* Stile per ciascun slot di tempo */
+.time-slot {
+    display: flex; /* Usa il flexbox per allineare gli elementi */
+    align-items: center; /* Allinea gli elementi al centro */
+    margin: 5px 0; /* Margine tra gli slot */
+    border: 1px solid #ddd; /* Bordo grigio chiaro per gli slot */
+    border-radius: 4px; /* Angoli arrotondati */
+    padding: 10px; /* Spaziatura interna per lo slot */
+    background-color: white; /* Sfondo bianco per ogni slot */
+    color: black; /* Colore del testo per ogni slot */
+}
+
+/* Stile per popup */
+.popup {
+    display: none; /* Nasconde il popup di default */
+    position: fixed; /* Posizionamento fisso per mantenere il popup sopra gli altri elementi */
+    left: 50%; /* Allinea il popup al centro orizzontalmente */
+    top: 20%; /* Posizionamento verticale */
+    transform: translateX(-50%); /* Centro orizzontalmente il popup */
+    background-color: white; /* Sfondo bianco per il popup */
+    border-radius: 8px; /* Angoli arrotondati */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Ombra per il popup */
+    padding: 20px; /* Spaziatura interna per il contenuto del popup */
+    z-index: 1000; /* Z-index alto per sovrapporre il popup agli altri contenuti */
+    width: 300px; /* Larghezza fissa del popup */
+}
+
+/* Overlay dietro il popup */
+.overlay {
+    display: none; /* Nasconde l'overlay di default */
+    position: fixed; /* Posizionamento fisso */
+    left: 0; /* Si estende su tutta la larghezza */
+    top: 0; /* Si estende su tutta l'altezza */
+    width: 100%; /* Larghezza al 100% */
+    height: 100%; /* Altezza al 100% */
+    background-color: rgba(0, 0, 0, 0.5); /* Ombra scura per risaltare il popup */
+    z-index: 999; /* Z-index inferiore rispetto al popup */
+}
+
+/* Media query per rendere il sito responsive */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px; /* Riduce il padding del contenitore su schermi piccoli */
+    }
+
+    h1, h2 {
+        font-size: 1.5em; /* Aumenta la dimensione del font per titoli sui dispositivi più piccoli */
+    }
+
+    label {
+        width: auto; /* Imposta larghezza automatica per le etichette */
+    }
+
+    button {
+        width: 100%; /* Pulsanti occupano la larghezza totale */
+    }
+}
