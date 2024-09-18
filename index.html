@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8"> <!-- Codifica dei caratteri -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Impostazioni per il responsive design -->
+    <title>Prenotazione Campo di Padel</title> <!-- Titolo della pagina -->
+    <link rel="stylesheet" href="/static/css/styles.css"> <!-- Collega il CSS -->
+    <script src="/static/js/scripts.js" defer></script> <!-- Collega il JavaScript in modo differito -->
+</head>
+<body>
+    <div class="container"> <!-- Contenitore principale -->
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+            <h1>PADEL PRO</h1> <!-- Titolo principale -->
+        </div>
+        <div>
+            <h3>Prenota qui il tuo campo di PADEL!</h3> <!-- Sottotitolo -->
+        </div>
+        <label for="date">Seleziona data:</label>
+        <input type="date" id="date" required> <!-- Campo di input per la data -->
+        <button class="manage-bookings-button" onclick="toggleManageBookings()">Gestisci Prenotazioni</button> <!-- Pulsante per gestire prenotazioni -->
+        
+        <section id="manage-bookings-section" style="display: none;"> <!-- Sezione di gestione prenotazioni, inizialmente nascosta -->
+            <h2>Gestisci le tue prenotazioni</h2>
+            <div id="email-step"> <!-- Passo per l'email -->
+                <label for="manage-email">Inserisci il tuo indirizzo email:</label>
+                <input type="email" id="manage-email" required> <!-- Campo per l'email -->
+                <button onclick="requestConfirmation()">Richiedi Codice</button> <!-- Pulsante per richiedere il codice -->
+            </div>
+            <div id="code-step" style="display: none;"> <!-- Passo per il codice, inizialmente nascosto -->
+                <label for="unique-code">Inserisci il codice univoco ricevuto via email:</label>
+                <input type="text" id="unique-code" required> <!-- Campo per il codice -->
+                <button onclick="verifyCode()">Verifica Codice</button>
+                <p id="code-feedback" style="color: red;"></p> <!-- Messaggio di feedback -->
+            </div>
+            <div id="bookings-step" style="display: none;"> <!-- Passo per mostrare le prenotazioni, inizialmente nascosto -->
+                <h3>Le tue prenotazioni:</h3>
+                <ul id="bookings-list">
+                    <!-- Le prenotazioni verranno elencate qui -->
+                </ul>
+            </div>
+        </section>
+        <div id="time-slots">
+            <!-- Gli slot orari verranno generati qui -->
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div> <!-- Overlay per popup -->
+    <div class="popup" id="popup">
+        <h3>Dettagli Prenotazione</h3>
+        <p id="popup-message"></p>
+        <button class="cancel" id="popup-close" onclick="closePopup()">Chiudi</button> <!-- Pulsante per chiudere il popup -->
+    </div>
+
+    <div class="popup" id="booking-popup" style="display: none;"> <!-- Popup per prenotazione -->
+        <h3>Prenota il Campo</h3>
+        <label for="first-name">Nome:</label>
+        <input type="text" id="first-name" required><br>
+        <label for="last-name">Cognome:</label>
+        <input type="text" id="last-name" required><br>
+        <label for="phone">Telefono:</label>
+        <input type="tel" id="phone" required><br>
+        <label for="email-booking">Email:</label>
+        <input type="email" id="email-booking" required><br>
+        <button class="confirm" id="confirm-booking" onclick="confirmBooking()">Prenota</button> <!-- Pulsante per confermare la prenotazione -->
+        <button class="cancel" onclick="closeBookingPopup()">Annulla</button> <!-- Pulsante per annullare -->
+    </div>
+	<!-- Popup di verifica codice -->
+<div class="popup" id="verification-popup" style="display: none;">
+    <h3>Verifica Email</h3>
+    <p>Inserisci il codice di verifica inviato al tuo indirizzo email:</p>
+    <input type="text" id="verification-code" placeholder="Codice di verifica" required>
+    <button class="confirm" onclick="verifyBookingCode()">Verifica</button>
+    <button class="cancel" onclick="closeVerificationPopup()">Annulla</button>
+    <p id="verification-feedback" style="color: red;"></p>
+</div>
+
+</body>
+</html>
